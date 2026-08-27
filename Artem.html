@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Артём Бавтрукович: Тёмный путь</title>
+    <style>
+        /* ===== ОБЩИЕ СТИЛИ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        section {
+            position: relative;
+            padding: 80px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1, h2, h3 {
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(90deg, #03a9f4, #f441a5);
+            border: none;
+            color: #000;
+            box-shadow: 0 4px 15px rgba(244,65,165,0.5);
+        }
+
+        .btn-gradient:hover {
+            box-shadow: 0 6px 20px rgba(244,65,165,0.8);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .flex {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .flex > .col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .photo {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .photo-frame {
+            padding: 10px;
+            background: #111;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+        }
+
+        .photo-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: #aaa;
+        }
+
+        .quote {
+            border-left: 5px solid #ff4d4d;
+            padding: 20px;
+            margin: 30px 0;
+            background: rgba(255,255,255,0.05);
+            font-style: italic;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+            font-style: normal;
+        }
+
+        /* ============ ЧАСТЬ 1 (Шапка + контент) ============ */
+        #header {
+            background: #000;
+            border-bottom: 3px solid #ff0000;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        #header h1 {
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000;
+            margin-bottom: 5px;
+        }
+
+        #header p {
+            color: #ccc;
+            letter-spacing: 2px;
+        }
+
+        #part1 {
+            background: #000;
+            background-image: radial-gradient(4px 100px at 0px 235px, #09f, #0000),
+                radial-gradient(4px 100px at 300px 235px, #09f, #0000),
+                radial-gradient(1.5px 1.5px at 150px 117.5px, #09f 100%, #0000 150%);
+            background-size: 300px 235px;
+            animation: hi 150s linear infinite;
+            color: #fff;
+            position: relative;
+        }
+
+        #part1::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-image: radial-gradient(ellipse 1.5px 2px at 1.5px 50%, #0000 0, #0000 90%, #000 100%);
+            background-size: 25px 8px;
+        }
+
+        @keyframes hi {
+            0% { background-position: 0px 0px, 0px 0px, 0px 0px; }
+            100% { background-position: 0px 6800px, 3px 6800px, 151.5px 6917.5px; }
+        }
+
+        #part1 .container {
+            z-index: 2;
+        }
+
+        #part1 h2 {
+            color: #00d2ff;
+            text-shadow: 0 0 20px #00d2ff;
+        }
+
+        #part1 .flex {
+            align-items: center;
+        }
+
+        #part1 .photo-frame {
+            background: rgba(0,0,0,0.6);
+            border: 2px solid #00d2ff;
+        }
+
+        /* ============ ЧАСТЬ 2 ============ */
+        #part2 {
+            background: #2F2F2F;
+            color: #fff;
+        }
+
+        #part2 h2 {
+            color: #6DA5C9;
+        }
+
+        .scientist-card {
+            background: #4A4A4A;
+            border-left: 5px solid #6DA5C9;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .scientist-card:hover {
+            transform: translateX(10px);
+        }
+
+        .scientist-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .scientist-role {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .scientist-quote {
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        #part2 .photo-frame {
+            border: 3px solid #6DA5C9;
+            background: #222;
+        }
+
+        /* ============ ЧАСТЬ 3 ============ */
+        #part3 {
+            background: linear-gradient(135deg, #FFD1DC, #E6E6FA);
+            color: #333;
+        }
+
+        #part3 h2 {
+            color: #FF69B4;
+            text-shadow: 2px 2px #fff;
+        }
+
+        #part3 .photo-frame {
+            border: 5px solid #fff;
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transform: rotate(-3deg);
+            transition: transform 0.3s;
+        }
+
+        #part3 .photo-frame:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .anime-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .anime-bg span {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 5s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(-30px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 0.3; }
+        }
+
+        .rainbow-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        .rainbow-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-pink {
+            background: #FF69B4;
+            color: white;
+        }
+
+        .btn-rainbow {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            color: white;
+        }
+
+        .btn-blue {
+            background: #00BFFF;
+            color: white;
+        }
+
+        /* ============ ЧАСТЬ 4 ============ */
+        #part4 {
+            background: #1B2A41;
+            color: #fff;
+        }
+
+        #part4 h2 {
+            color: #B22222;
+            text-shadow: 0 0 10px #B22222;
+        }
+
+        #part4 .photo-frame {
+            border: 3px solid #B22222;
+        }
+
+        .quote-dark {
+            border-left-color: #B22222;
+            background: rgba(178,34,34,0.2);
+        }
+
+        /* ============ ЧАСТЬ 5 ============ */
+        #part5 {
+            background: #0A0A0A;
+            color: #C1FFC1;
+        }
+
+        #part5 h2 {
+            color: #00FF66;
+            text-shadow: 0 0 20px #00FF66;
+        }
+
+        #part5 .photo-frame {
+            border: 2px solid #00FF66;
+        }
+
+        .green-glow {
+            box-shadow: 0 0 20px rgba(0,255,102,0.3);
+        }
+
+        /* ============ ЧАСТЬ 6 ============ */
+        #part6 {
+            background: #0B0B0B;
+            background-image: repeating-linear-gradient(45deg, #ff0000 0, #ff0000 2px, transparent 2px, transparent 20px);
+            color: #fff;
+        }
+
+        #part6 h2 {
+            color: #FF0000;
+        }
+
+        #part6 .photo-frame {
+            border: 2px solid #FF0000;
+        }
+
+        /* ============ ЧАСТЬ 7 ============ */
+        #part7 {
+            background: #1E1E1E;
+            color: #d3d3d3;
+            overflow: hidden;
+        }
+
+        #part7 h2 {
+            color: #B0A000;
+        }
+
+        .smoke {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            border-radius: 50%;
+            filter: blur(30px);
+            animation: smokeAnim 10s infinite;
+        }
+
+        .smoke1 { top: 20%; left: 10%; }
+        .smoke2 { top: 60%; right: 15%; animation-delay: 3s; }
+        .smoke3 { bottom: 10%; left: 40%; animation-delay: 6s; }
+
+        @keyframes smokeAnim {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            30% { opacity: 0.5; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+
+        /* ============ ЧАСТЬ 8 ============ */
+        #part8 {
+            background: #000;
+            color: #E0E0E0;
+        }
+
+        #part8 h2 {
+            color: #6B0000;
+            text-shadow: 0 0 15px #6B0000;
+        }
+
+        #part8 .photo-frame {
+            border: 2px solid #6B0000;
+            filter: grayscale(80%);
+        }
+
+        .final-btn {
+            background: linear-gradient(90deg, #6B0000, #000);
+            border: 1px solid #6B0000;
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .final-btn:hover {
+            background: #6B0000;
+            box-shadow: 0 0 20px #6B0000;
+        }
+
+        /* ===== Адаптивность ===== */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            section { padding: 50px 15px; }
+            .flex { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header id="header">
+        <h1>АРТЁМ БАВТРУКОВИЧ</h1>
+        <p>ИСТОРИЯ ТЁМНОГО ПУТИ</p>
+    </header>
+
+    <!-- Часть 1 -->
+    <section id="part1">
+        <div class="container">
+            <h2>Начало падения</h2>
+            <div class="flex">
+                <div class="col">
+                    <p>Всё началось с KFC. С той самой работы, где Артём столкнулся с плохими людьми, которые потихоньку склоняли его сознание к гомосексуализму. Их влияние было незаметным, но постоянным, и молодой парень начал меняться.</p>
+                    <a href="#part2" class="btn btn-gradient">Дальше →</a>
+                </div>
+                <div class="col">
+                    <div class="photo-frame">
+                        <img src="images/kfc.jpg" alt="KFC" class="photo">
+                        <div class="photo-caption">Тот самый KFC</div>
+                    </div>
+                    <div class="quote">
+                        <p>"Ты крутой" — надпись на бумажке, которая всё изменила</p>
+                        <div class="quote-author">— намёк на Вэнсдэй</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часть 2 -->
+    <section id="part2">
+        <div class="container">
+            <h2>Великие умы сомневаются</h2>
+            <div class="flex">
+                <div class="col">
+                    <div class="scientist-card">
+                        <div class="scientist-name">Елена Саугановна Гафиатулина</div>
+                        <div class="scientist-role">Канд. физ.-мат. наук, доцент, бывший проректор ДВГУПС</div>
+                        <p class="scientist-quote">"Я привыкла к доказательствам. Но когда я вижу, как Артём смотрит на Германа, я вижу не бинарную логику, а непрерывную функцию интереса. Это убедительная статистика."</p>
+                    </div>
+                    <div class="scientist-card">
+                        <div class="scientist-name">Владимир Жириновский</div>
+                        <div class="scientist-role">Политик, лидер ЛДПР</div>
+                        <p class="scientist-quote">"Артём выбрал меня, носит мою футболку — это говорит о его смелости. А то, что он поглядывает на мальчиков... Ну что ж, я сам всегда привлекал внимание! Но Герман — отдельная тема."</p>
+                    </div>
+                    <div class="scientist-card">
+                        <div class="scientist-name">Альберт Эйнштейн</div>
+                        <div class="scientist-role">Физик-теоретик</div>
+                        <p class="scientist-quote">"Моя теория относительности гласит: всё зависит от системы отсчёта. В системе Артёма его тяга к Герману — это не отклонение, а ускорение."</p>
+                    </div>
+                    <div class="scientist-card">
+                        <div class="scientist-name">Быков Андрей Сергеевич</div>
+                        <div class="scientist-role">Из сериала "Интерны"</div>
+                        <p class="scientist-quote">"Если человек надевает футболку с Жириновским и при этом тайно подглядывает за Германом — это диагноз! Но он творческая личность, ему нужен хороший пример."</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="photo-frame">
+                        <img src="images/zhirik.jpg" alt="Жириновский" class="photo">
+                        <div class="photo-caption">Футболка, которую носит Артём</div>
+                    </div>
+                    <a href="#part3" class="btn btn-gradient">Дальше →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часть 3 -->
+    <section id="part3">
+        <div class="anime-bg">
+            <span style="top:10%; left:20%; animation-delay: 0s;">💖</span>
+            <span style="top:30%; left:70%; animation-delay: 1s;">🌈</span>
+            <span style="top:60%; left:30%; animation-delay: 2s;">⭐</span>
+            <span style="top:80%; left:80%; animation-delay: 3s;">✨</span>
+            <span style="top:20%; left:50%; animation-delay: 4s;">💫</span>
+        </div>
+        <div class="container">
+            <h2>Гомосексуальный стиль</h2>
+            <div class="flex">
+                <div class="col">
+                    <p>Артём всегда выделялся из толпы. Его стиль — смелые сочетания цветов, аксессуары и, конечно, носки. Говорят, его любимая пара — с радужным принтом и надписью "Love is Love". Он носит их с гордостью, не обращая внимания на косые взгляды.</p>
+                    <a href="#part4" class="btn btn-gradient">Дальше →</a>
+                </div>
+                <div class="col">
+                    <div class="photo-frame">
+                        <img src="images/noski.jpg" alt="Носки" class="photo">
+                        <div class="photo-caption">Его знаменитые носки</div>
+                    </div>
+                    <div style="text-align:center; margin-top:30px;">
+                        <button class="rainbow-btn btn-pink">💖</button>
+                        <button class="rainbow-btn btn-rainbow">🌈</button>
+                        <button class="rainbow-btn btn-blue">⭐</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часть 4 -->
+    <section id="part4">
+        <div class="container">
+            <h2>Тот самый берег</h2>
+            <div class="flex">
+                <div class="col">
+                    <p>Всё началось на берегу. Общая фотография — смех, объятия, кадр на память. Но Артём не подошёл к друзьям. Он стоял в стороне, смотрел на них холодно, как на чужих. С этого момента он начал избегать общения с теми, кто был гетеросексуален.</p>
+                    <div class="quote quote-dark">
+                        <p>"С того самого берега он перестал быть с нами. Мы для него стали просто людьми из прошлого."</p>
+                        <div class="quote-author">— бывший друг</div>
+                    </div>
+                    <a href="#part5" class="btn btn-gradient">Дальше →</a>
+                </div>
+                <div class="col">
+                    <div class="photo-frame">
+                        <img src="images/popa.jpg" alt="На берегу" class="photo">
+                        <div class="photo-caption">Кадр с берега, где Артём остался один</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часть 5 -->
+    <section id="part5">
+        <div class="container">
+            <h2>Зелёный змей</h2>
+            <div class="flex">
+                <div class="col">
+                    <p>Сначала это была одна бутылка. Потом вторая. Артём перестал появляться на встречах, перестал отвечать на сообщения. Друзья звали его на день рождения Лёши — он не приехал. Сказал, что занят. Но все знали, где он.</p>
+                    <div class="quote">
+                        <p>"Я не поеду. У меня дела." — слова Артёма, когда узнал о дне рождения Лёши.</p>
+                    </div>
+                    <a href="#part6" class="btn btn-gradient">Дальше →</a>
+                </div>
+                <div class="col">
+                    <div class="photo-frame green-glow">
+                        <img src="images/pyot.jpg" alt="Пьёт" class="photo">
+                        <div class="photo-caption">Его постоянный спутник</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часть 6 -->
+    <section id="part6">
+        <div class="container">
+            <h2>Тени прошлого</h2>
+            <div class="flex">
+                <div class="col">
+                    <p>До встречи с Германом Артём часто проводил время с сомнительными личностями. Люди с плохим прошлым, тёмные взгляды, криминальные связи. Они тянули его вниз, заставляли забыть о нормальной жизни. Но однажды в этом мраке появился он — Герман.</p>
+                    <div class="quote">
+                        <p>"С ним я перестал бояться. Он стал моим светом в этом тёмном мире."</p>
+                        <div class="quote-author">— Артём</div>
+                    </div>
+                    <a href="#part7" class="btn btn-gradient">Дальше →</a>
+                </div>
+                <div class="col">
+                    <div class="photo-frame">
+                        <img src="images/houmis.jpg" alt="Тёмный человек" class="photo">
+                        <div class="photo-caption">Тот, кто привёл Артёма к переменам</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часть 7 -->
+    <section id="part7">
+        <div class="smoke smoke1"></div>
+        <div class="smoke smoke2"></div>
+        <div class="smoke smoke3"></div>
+        <div class="container">
+            <h2>Дым и увядание</h2>
+            <div class="flex">
+                <div class="col">
+                    <p>Время не пощадило Артёма. Его лицо, когда-то живое и молодое, теперь выглядело уставшим, с глубокими морщинами. Он начал много курить — сначала одну сигарету в день, потом полпачки, а затем уже не считал. Пальцы пожелтели, зубы потемнели, голос стал хриплым.</p>
+                    <div class="quote">
+                        <p>"Каждая сигарета — это маленькое прощание с собой."</p>
+                    </div>
+                    <a href="#part8" class="btn btn-gradient">Дальше →</a>
+                </div>
+                <div class="col">
+                    <div class="photo-frame">
+                        <img src="images/siga.jpg" alt="Курение" class="photo">
+                        <div class="photo-caption">Его постоянный спутник</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часть 8 -->
+    <section id="part8">
+        <div class="container">
+            <h2>Розыск</h2>
+            <div class="flex">
+                <div class="col">
+                    <p>Артём полностью оборвал все связи. Родственники перестали получать от него вестей, друзья безуспешно пытались найти его. Его лицо появилось на ориентировках, но это уже был не тот человек, которого они знали.</p>
+                    <p>Денис и Максим, его старые гетеросексуальные друзья, бросили все силы на поиски. Они обзванивали больницы, обходили притоны, утешали его близких. Но Артём сам захлопнул дверь, и ключ выбросил.</p>
+                    <div class="quote">
+                        <p>"Он сам выбрал этот путь. Мы больше не можем его спасти."</p>
+                        <div class="quote-author">— Денис и Максим</div>
+                    </div>
+                    <a href="#header" class="final-btn">↺ В начало</a>
+                </div>
+                <div class="col">
+                    <div class="photo-frame">
+                        <img src="images/rozysk.jpg" alt="Розыск" class="photo">
+                        <div class="photo-caption">Ориентировка, которая ни к чему не привела</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
